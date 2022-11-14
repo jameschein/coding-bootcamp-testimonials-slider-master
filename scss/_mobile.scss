@@ -1,0 +1,27 @@
+@media only screen and (max-width:500px) {
+
+    .showcase {
+       height:400px;
+
+
+        &-content {
+            text-align:center;
+
+            img {
+                display:none;
+            }
+        }
+
+        
+
+    }
+
+   
+
+
+
+    body {
+        background-color: $secondary-color;
+}
+
+}

@@ -1,0 +1,29 @@
+$light-color : #f4f4f4;
+$font-stack: Ariel, Helvetica, sans-serif;
+//$primary-color:#e0ffff;
+$primary-color:#0e6cff;
+$secondary-color:#ff8700;
+
+// Set text color based on bg
+@function set-text-color($color) {
+    @if(lightness($color) > 70){
+        @return #333;
+    } @else {
+        @return white;
+    }
+}
+
+// Set bgd and tyext color 
+@mixin set-background($color) {
+    background-color: $color;
+    color: set-text-color($color);
+}
+
+
+
+
+
+
+
+
+
