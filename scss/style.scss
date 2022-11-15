@@ -1,77 +1,156 @@
 @use 'config';
+@use 'utilities';
+@use 'buttons';
 
+
+/* --------------------------- */
 * {
     box-sizing: border-box;
     margin:0;
     padding:0;
-
+    list-style-type: none;
 }
 
 body {
-    background-color: $light-color;
-    font-family: $font-stack;
+    background-image: url('../assets/images/pattern-curve.svg');
+    background-size: 100%;
+    background-repeat: repeat-x;
+    background-position: 50% 100%;
+    font-family: config.$font-stack;
     line-height: 1.6;
-  
+    color:config.$primary-color;
+
+}
+
+p {
+    margin-block:0 1rem;
+    font-size:1.125rem;
+    line-height: 1.25;
 }
 
 a:link, a:visited {
     text-decoration: none;
+}
+
+.container {
+    max-width: 100%;
+    position: relative;
+    min-height:96vh;
+    margin:2rem 2rem 0;
+    overflow-y:hidden ;
+
+    .button-block {
+        width:15%;
+        display:flex;
+        position: absolute;
+        left:50%;
+        top:50%;
+        z-index: 200;
+        margin-left:calc(-7.5% - .75rem);
+        border-radius: 50px;
+        box-shadow: 0px 25px 50px rgba(106, 89, 139, 0.7);
+        background-color: transparent;
     
-}
+        button {
+            padding:.75rem .95rem;
+            border:none;
+            background-color: white;
+            cursor: pointer;
+    
+            &:hover {
+                background-color: #D4D4D2;
+                transition: background-color 250ms ease-in-out;
+            }
+    
+            &:nth-child(1) {
+                padding: 1rem 1.5rem 1rem 1rem;
+                border-top-left-radius: 50px;
+                border-bottom-left-radius: 50px;
+            }
+    
+            &:nth-child(2) {
+                padding:1rem 1rem 1rem 1.5rem;
+                border-top-right-radius: 50px;
+                border-bottom-right-radius: 50px;
+            }
+    
+            img {
+                object-fit: contain;
+                vertical-align: middle;
+            }
+        }  
+    }
 
-.showcase {
-    @include set-background($primary-color);
-    height:600px;
-    color: set-text-color($primary-color);
+    .profile-card {
+        display: grid;
+        grid-template-areas: 
+            'pic'
+            'quote';
+        background-image: url('../assets/images/pattern-bg.svg');
+        background-size: 96%;
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        position: absolute;
+        left:50%;
+        margin-left:-40vw;
+        z-index:1;
+        padding:2rem 1rem 2rem;
+        border-radius: 10px;
+        font-weight: 300;
+        text-align: center;
 
-    nav {
-        display: flex;
-        align-items:center;
-        justify-content: space-between;
 
-        ul {
-            display: flex;
-            list-style-type: none;
-        
+        &#john {
+            display: none;
         }
 
-        li {
-            padding:15px;
+        .pic {
+            grid-area: pic;
         }
 
-        a:link, a:visited {
-            text-decoration: none;
-            color:set-text-color($primary-color);
+        figure {
+            box-shadow: 0px 25px 50px rgba(106, 89, 139, 0.7);
+            width:70%;
+            margin:0 auto 5rem;
+            text-align: center;
+
+            .profile-image {
+                width: 130%;
+                display: block;
+                margin-left:-65%;
+                position: relative;
+                left:50%
+            }
+        }
+
+        .quote {
+            display: grid;
+            grid-template-areas: 'profile-testimonial' 'profile-header';
+            grid-area: 'quote';
+
+            hgroup {
+                grid-area: profile-header;
             
-        }
-        
-        a:hover {
-            color:$secondary-color;
-        }
-    }
+                h2 {
+                    color: config.$secondary-color;
+                    font-size: 1.25rem;
+                }
+                
+                h3 {
+                    opacity:.5;
+                    font-weight: 500;
+                    color:#BFBCCE;
+                }
+            }
 
-
-   
-
-    &-content {
-        height:100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap:2rem;
-        padding-block:2rem;
-
-        img {
-            width:50%;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            line-height: 1;
-        }
-
-        p {
-            margin-block:1rem;
+            blockquote {
+                grid-area: profile-testimonial;
+                background-image: url('../assets/images/pattern-quotes.svg');
+                background-size: 20%;
+                background-repeat: no-repeat;
+                background-position: 50% 0;
+                padding-block:2rem 1rem;
+            }
         }
     }
 
@@ -79,12 +158,91 @@ a:link, a:visited {
 
 
 
-img {
-    width: 100%;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .showcase {
+    // @include config.set-background(config.$primary-color);
+    // height:600px;
+    // color: config.set-text-color(config.$primary-color);
+// 
+    // nav {
+        // display: flex;
+        // align-items:center;
+        // justify-content: space-between;
+// 
+        // ul {
+            // display: flex;
+            // list-style: none;
+        // }
+// 
+        // li {
+            // padding:15px;
+        // }
+// 
+        // a:link, a:visited {
+            // text-decoration: none;
+            // color: config.set-text-color(config.$primary-color);   
+        // }
+        // 
+        // a:hover {
+            // color:config.$secondary-color;
+        // }
+    // }
+// 
+// 
+//    
+// 
+    // &-content {
+        // height:100%;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // gap:2rem;
+        // padding-block:2rem;
+// 
+        // img {
+            // width:50%;
+        // }
+// 
+        // h1 {
+            // font-size: 2.5rem;
+            // line-height: 1;
+        // }
+// 
+        // p {
+            // margin-block:1rem;
+        // }
+    // }
+// 
+// }
+
+
+footer {
+    padding:1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    .attribution { 
+        font-size: 11px; text-align: center; }
+    
+    .attribution a { 
+        color: #8768D1; 
+    }
+
 }
 
-
-
-@use 'utilities';
-@use 'buttons';
-@use 'mobile';
+@import 'mobile';

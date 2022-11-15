@@ -1,3 +1,5 @@
+@use 'config';
+
 %btn {
     display: inline-block;
     border-radius:5px;
@@ -18,11 +20,11 @@ nav {
 
 .btn-primary {
     @extend %btn;
-    @include set-background(lighten($primary-color, 10%))
+    @include config.set-background(lighten(config.$primary-color, 10%))
 }
 
 .btn-secondary {
     @extend %btn;
-    @include set-background($secondary-color)
+    @include config.set-background(config.$secondary-color)
 }
 

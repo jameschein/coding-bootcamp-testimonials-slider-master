@@ -1,8 +1,7 @@
 $light-color : #f4f4f4;
-$font-stack: Ariel, Helvetica, sans-serif;
-//$primary-color:#e0ffff;
-$primary-color:#0e6cff;
-$secondary-color:#ff8700;
+$font-stack: 'Inter', sans-serif;
+$primary-color:#3D3C57;
+$secondary-color:#3D3C57;
 
 // Set text color based on bg
 @function set-text-color($color) {
@@ -13,7 +12,7 @@ $secondary-color:#ff8700;
     }
 }
 
-// Set bgd and tyext color 
+// Set bgd and text color 
 @mixin set-background($color) {
     background-color: $color;
     color: set-text-color($color);
