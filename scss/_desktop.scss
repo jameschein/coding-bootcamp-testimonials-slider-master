@@ -14,7 +14,7 @@
   .container {
     .carousel {
       width: 100%;
-      overflow: visible;
+      overflow: hidden;
 
       .button-block {
         width: 7.25%;
@@ -31,6 +31,7 @@
           background-position: 100% 0;
           align-items: center;
           justify-content: center;
+          padding: 3rem 6rem 3rem 9rem;
 
           figure {
             width: 50%;
