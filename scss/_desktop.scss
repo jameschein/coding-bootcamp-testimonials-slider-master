@@ -12,12 +12,9 @@
   }
 
   .container {
-
     .carousel {
-      width:100%;
+      width: 100%;
       overflow: visible;
-      border:black 1px solid;
-
 
       .button-block {
         width: 7.25%;
@@ -26,11 +23,7 @@
       }
 
       .slider {
-        border:red 1px solid;
-    
         .profile-card {
-
-          border:blue 1px solid;
           display: grid;
           grid-template-areas: "quote . pic";
           grid-template-columns: 44% 12% 44%;

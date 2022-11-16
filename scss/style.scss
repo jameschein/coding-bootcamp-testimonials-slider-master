@@ -35,13 +35,12 @@ a:visited {
 
 // OUTSIDE CONTAINER
 .carousel {
-  width: 100vw;
-  margin:auto;
+  width: 100%;
+  margin: 2rem auto 0;
   height: 90%;
   position: relative;
   padding: 0rem;
   overflow: hidden;
-  
 
   .button-block {
     width: 15%;
@@ -92,16 +91,16 @@ a:visited {
   }
 
   ul.slider {
-    width:400vw;
-    display:flex;
+    width: 400vw;
+    display: flex;
     flex-direction: row;
-    height:100%;
+    height: 100%;
     top: 0;
     left: 0;
     list-style: none;
 
     .profile-card {
-      width:100vw;
+      width: 100vw;
       display: grid;
       grid-template-areas:
         "pic"
