@@ -1,30 +1,28 @@
-@use 'config';
+@use "config";
 
 %btn {
-    display: inline-block;
-    border-radius:5px;
-    padding:8px 16px;
-    margin:3px;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin: 3px;
 
-    &:hover {
-        transform: scale(.98);
-    }
+  &:hover {
+    transform: scale(0.98);
+  }
 }
 
 nav {
-    a {
-        @extend %btn;
-    }
-    
+  a {
+    @extend %btn;
+  }
 }
 
 .btn-primary {
-    @extend %btn;
-    @include config.set-background(lighten(config.$primary-color, 10%))
+  @extend %btn;
+  @include config.set-background(lighten(config.$primary-color, 10%));
 }
 
 .btn-secondary {
-    @extend %btn;
-    @include config.set-background(config.$secondary-color)
+  @extend %btn;
+  @include config.set-background(config.$secondary-color);
 }
-

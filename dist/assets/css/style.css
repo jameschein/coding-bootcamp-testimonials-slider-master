@@ -179,10 +179,9 @@ a:link, a:visited {
 }
 .carousel ul.slider .profile-card.slide[data-active] {
   opacity: 1;
+  margin-left: 0%;
 }
 .carousel ul.slider .profile-card.slide {
-  opacity: 0;
-  transition: 500ms opacity ease-in-out;
   position: absolute;
   inset: 0;
   transform-origin: right;
@@ -192,10 +191,12 @@ a:link, a:visited {
   background-size: 96%;
   background-repeat: no-repeat;
   background-position: 50% 0;
-  padding: 2rem 1rem 2rem;
+  padding: 2rem 3rem 2rem;
   border-radius: 10px;
   font-weight: 300;
   text-align: center;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
 }
 .carousel ul.slider .profile-card.slide .pic {
   grid-area: pic;

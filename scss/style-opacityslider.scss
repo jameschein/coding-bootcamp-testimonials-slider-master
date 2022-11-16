@@ -1,8 +1,8 @@
-@use "config";
-@use "utilities";
-@use "buttons";
+// @use "config";
+// @use "utilities";
+// @use "buttons";
 
-/* ---------- MOBILE FIRST STYLES REALLY ----------------- */
+/* --------------------------- */
 *,
 *::before,
 *::after {
@@ -35,13 +35,11 @@ a:visited {
 
 // OUTSIDE CONTAINER
 .carousel {
-  width: 100vw;
-  margin:auto;
-  height: 90%;
+  width: 98%;
+  height: 100vh;
   position: relative;
-  padding: 0rem;
-  overflow: hidden;
-  
+  padding: 2rem 0rem;
+  border: red solid 1px;
 
   .button-block {
     width: 15%;
@@ -92,16 +90,24 @@ a:visited {
   }
 
   ul.slider {
-    width:400vw;
-    display:flex;
-    flex-direction: row;
-    height:100%;
+    display: flex;
+    width: 100%;
     top: 0;
     left: 0;
     list-style: none;
 
-    .profile-card {
-      width:100vw;
+    .profile-card.slide[data-active] {
+      opacity: 1;
+      margin-left: 0%;
+      //transition-delay: 0ms;
+    }
+
+    .profile-card.slide {
+      position: absolute;
+      inset: 0;
+
+      transform-origin: right;
+
       display: grid;
       grid-template-areas:
         "pic"
@@ -116,6 +122,10 @@ a:visited {
       border-radius: 10px;
       font-weight: 300;
       text-align: center;
+
+      opacity: 0;
+      transition: opacity 500ms ease-in-out;
+      //transition-delay: 500ms;
 
       .pic {
         grid-area: pic;
@@ -186,4 +196,4 @@ footer {
   }
 }
 
-@import "desktop";
+// @import "desktop";

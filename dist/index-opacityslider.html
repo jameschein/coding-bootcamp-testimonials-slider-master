@@ -20,8 +20,7 @@
     <script
       src="https://kit.fontawesome.com/98fc27b2a0.js"
       crossorigin="anonymous"></script>
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
 
     <script src="script-carouselslider.js"></script>
 
@@ -32,20 +31,47 @@
 
   <body>
     <main aria-label="Newest Slides" class="container">
-      <div class="carousel">
+      <div class="carousel" data-carousel>
         <nav class="button-block">
-          <button class="carousel-button prev">
+          <button class="carousel-button prev" data-carousel-button="prev">
             <img
               src="assets/images/icon-prev.svg"
               alt="previous slide button" />
           </button>
-          <button class="carousel-button next">
+          <button class="carousel-button next" data-carousel-button="next">
             <img src="assets/images/icon-next.svg" alt="next slide button" />
           </button>
         </nav>
 
-        <ul class="slider">
-          <li class="profile-card" id="lastClone">
+        <ul class="slider" data-slides>
+          <li class="slide profile-card off-right" id="tanya" data-active>
+            <section class="pic">
+              <figure>
+                <img
+                  src="assets/images/image-tanya.jpg"
+                  alt="Tanya"
+                  class="profile-image" />
+              </figure>
+            </section>
+            <section class="quote">
+              <hgroup>
+                <h2>Tanya Sinclair</h2>
+                <h3>UX Engineer</h3>
+              </hgroup>
+              <blockquote>
+                <p>
+                  “ I've been interested in coding for a while but never taken
+                  the jump, until now.
+                </p>
+                <p>
+                  I couldn't recommend this course enough. I'm now in the job of
+                  my dreams and so excited about the future.”
+                </p>
+              </blockquote>
+            </section>
+          </li>
+          <!-- END TANYA -->
+          <li class="slide profile-card on-screen" id="john">
             <section class="pic">
               <figure>
                 <img
@@ -73,88 +99,6 @@
             </section>
           </li>
           <!-- END JOHN -->
-          <li class="profile-card" id="tanya">
-            <section class="pic">
-              <figure>
-                <img
-                  src="assets/images/image-tanya.jpg"
-                  alt="Tanya"
-                  class="profile-image" />
-              </figure>
-            </section>
-            <section class="quote">
-              <hgroup>
-                <h2>Tanya Sinclair</h2>
-                <h3>UX Engineer</h3>
-              </hgroup>
-              <blockquote>
-                <p>
-                  “ I've been interested in coding for a while but never taken
-                  the jump, until now.
-                </p>
-                <p>
-                  I couldn't recommend this course enough. I'm now in the job of
-                  my dreams and so excited about the future.”
-                </p>
-              </blockquote>
-            </section>
-          </li>
-          <!-- END TANYA -->
-          <li class="profile-card" id="john">
-            <section class="pic">
-              <figure>
-                <img
-                  src="assets/images/image-john.jpg"
-                  alt="John"
-                  class="profile-image" />
-              </figure>
-            </section>
-
-            <section class="quote">
-              <hgroup>
-                <h2>John Tarkpor</h2>
-                <h3>Junior Front-end Developer</h3>
-              </hgroup>
-              <blockquote>
-                <p>
-                  “ If you want to lay the best foundation possible I'd
-                  recommend taking this course.
-                </p>
-                <p>
-                  The depth the instructors go into is incredible. I now feel so
-                  confident about starting up as a professional developer.”
-                </p>
-              </blockquote>
-            </section>
-          </li>
-          <!-- END JOHN -->
-          <li class="profile-card" id="firstClone">
-            <section class="pic">
-              <figure>
-                <img
-                  src="assets/images/image-tanya.jpg"
-                  alt="Tanya"
-                  class="profile-image" />
-              </figure>
-            </section>
-            <section class="quote">
-              <hgroup>
-                <h2>Tanya Sinclair</h2>
-                <h3>UX Engineer</h3>
-              </hgroup>
-              <blockquote>
-                <p>
-                  “ I've been interested in coding for a while but never taken
-                  the jump, until now.
-                </p>
-                <p>
-                  I couldn't recommend this course enough. I'm now in the job of
-                  my dreams and so excited about the future.”
-                </p>
-              </blockquote>
-            </section>
-          </li>
-          <!-- END TANYA -->
         </ul>
       </div>
     </main>

@@ -1,28 +1,19 @@
-$light-color : #f4f4f4;
-$font-stack: 'Inter', sans-serif;
-$primary-color:#3D3C57;
-$secondary-color:#3D3C57;
+$light-color: #f4f4f4;
+$font-stack: "Inter", sans-serif;
+$primary-color: #3d3c57;
+$secondary-color: #3d3c57;
 
 // Set text color based on bg
 @function set-text-color($color) {
-    @if(lightness($color) > 70){
-        @return #333;
-    } @else {
-        @return white;
-    }
+  @if (lightness($color) > 70) {
+    @return #333;
+  } @else {
+    @return white;
+  }
 }
 
-// Set bgd and text color 
+// Set bgd and text color
 @mixin set-background($color) {
-    background-color: $color;
-    color: set-text-color($color);
+  background-color: $color;
+  color: set-text-color($color);
 }
-
-
-
-
-
-
-
-
-
