@@ -1,14 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // RESIZE - RESET CAROUSEL
+  window.addEventListener("resize", () => {
+    carouselSlider.style.transition = "none";
+    size = carouselCards[0].clientWidth;
+    carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
+  });
 
-    window.addEventListener("resize", () => {
-        carouselSlider.style.transition = 'none'
-        size = carouselCards[0].clientWidth
-        carouselSlider.style.transform = 'translateX('+(-size*counter)+'px)'
-    });
-
-    
+  // MECHANISM
   const carouselSlider = document.querySelector(".slider");
-
   const carouselCards = document.querySelectorAll(".profile-card");
 
   //BUTTONS
@@ -18,22 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
   //COUNTER
   let counter = 1;
 
-  // WIDTH OF EACH CARD
+  // GET WIDTH OF THE DEFAULT CARD
   let size = carouselCards[0].clientWidth;
 
+  // START ON SECOND SLIDE
   carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
 
   //BUTTON LISTENERS
   nextBtn.addEventListener("click", () => {
     if (counter >= carouselCards.length - 1) return;
-    carouselSlider.style.transition = "transform 1000ms ease-in-out";
+    carouselSlider.style.transition = "transform 500ms ease-in-out";
     counter++;
     carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
   });
 
   prevBtn.addEventListener("click", () => {
     if (counter <= 0) return;
-    carouselSlider.style.transition = "transform 1000ms ease-in-out";
+    carouselSlider.style.transition = "transform 500ms ease-in-out";
     counter--;
     carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
   });
@@ -53,6 +53,4 @@ document.addEventListener("DOMContentLoaded", () => {
       carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
     }
   });
-
-    
 });
