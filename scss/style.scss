@@ -34,10 +34,13 @@ a:visited {
   text-decoration: none;
 }
 
+.container {
+  overflow: hidden;
+}
 // OUTSIDE CAROUSEL DIV
 .carousel {
   width: 100%;
-  margin: 32px auto 0;
+  margin-block: 32px 0;
   height: 90%;
   position: relative;
   padding: 0rem;
