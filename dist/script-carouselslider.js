@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
 
   const buttonControl = (counterChange) => {
-    carouselSlider.style.transition = "transform 500ms ease-in-out";
+    carouselSlider.style.transition = "transform 200ms ease-in";
     counterChange;
     carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
     return counter;
