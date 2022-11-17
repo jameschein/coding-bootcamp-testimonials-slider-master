@@ -1,4 +1,32 @@
+const api_url = "data.json";
+const profiles = [];
+const imageArray = [];
+
 document.addEventListener("DOMContentLoaded", () => {
+  const profileName = document.querySelectorAll(".profile-name");
+  const profileJob = document.querySelectorAll(".profile-job");
+  const profileQuote = document.querySelectorAll(".profile-quote");
+  const profilePic = document.querySelectorAll(".profile-image");
+
+  /* DATA GETTING APP */
+  async function callAPI(profiles) {
+    const response = await fetch(api_url);
+    const data = await response.json();
+    profiles = data.profiles;
+
+    for (let i = 0; i < profileName.length; i++) {
+      profileQuote[i].children[0].textContent = profiles[i].quote[0];
+      profileQuote[i].children[1].textContent = profiles[i].quote[1];
+      profileJob[i].textContent = profiles[i].job;
+      profileName[i].textContent = profiles[i].candidate;
+      profilePic[i].src = "assets/images/" + profiles[i].portrait;
+    }
+  }
+
+  callAPI();
+
+  /* END DATA GETTING APP */
+
   // RESIZE - RESET CAROUSEL
   window.addEventListener("resize", () => {
     carouselSlider.style.transition = "none";
@@ -27,13 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return counter;
   };
 
-  // const prevControl = () => {
-  //   if (counter <= 0) return;
-  //   carouselSlider.style.transition = "transform 500ms ease-in-out";
-  //   counter--;
-  //   carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
-  // };
-
   const sliderShift = cardCalc => {
     carouselSlider.style.transition = "none";
     counter = cardCalc;
@@ -52,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.addEventListener(
-    "keydown",
+    "keyup",
     e => {
       const name = e.key;
       // const code = e.code;
@@ -79,21 +100,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-const api_url = "data.json";
-
-async function callAPI() {
-  // call API, save response as id, advice
-  // create function to parse advice to HTML
-  const response = await fetch(api_url);
-  const data = await response.json();
-  const profiles = data.profiles;
-  const {name, job} = profiles;
-
-  console.log(profiles);
-
-  // const nameSpace = document.querySelector(".name");
-  // nameSpace.textContent = name;
-}
-
-callAPI();
