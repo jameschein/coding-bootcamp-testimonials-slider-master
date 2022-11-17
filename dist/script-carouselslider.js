@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // GET WIDTH OF THE DEFAULT CARD
   let size = window.innerWidth;
 
-  document.querySelector(".posCheck").value = size;
+  // document.querySelector(".posCheck").value = size;
 
   // START ON SECOND SLIDE
   carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
