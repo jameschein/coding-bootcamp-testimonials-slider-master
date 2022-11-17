@@ -35,17 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   placeButtons();
 
-  const reload = () => {
-    carouselSlider.style.transition = "none";
-    size = window.clientWidth;
-    carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
-  };
-
-  reload();
-
   // RESIZE - RESET CAROUSEL
   window.addEventListener("resize", () => {
-    reload();
+    carouselSlider.style.transition = "none";
+    size = carouselCards[0].clientWidth;
+    carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
+
     placeButtons();
   });
 
