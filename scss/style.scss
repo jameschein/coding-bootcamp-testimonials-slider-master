@@ -33,10 +33,10 @@ a:visited {
   text-decoration: none;
 }
 
-// OUTSIDE CONTAINER
+// OUTSIDE CAROUSEL DIV
 .carousel {
   width: 100%;
-  margin: 2rem auto 0;
+  margin: 32px auto 0;
   height: 90%;
   position: relative;
   padding: 0rem;
@@ -47,7 +47,6 @@ a:visited {
     display: flex;
     position: absolute;
     left: 50%;
-    top: 50%;
     z-index: 200;
     margin-left: calc(-7.5% - 0.75rem);
     border-radius: 50px;
@@ -63,7 +62,7 @@ a:visited {
       &:hover,
       &:focus {
         background-color: #d4d4d2;
-        transition: background-color 250ms ease-in-out;
+        transition: background-color 100ms ease-in-out;
       }
 
       &:focus {
@@ -127,10 +126,12 @@ a:visited {
 
           .profile-image {
             width: 130%;
+            height: auto;
             display: block;
             margin-left: -65%;
             position: relative;
             left: 50%;
+            object-fit: cover;
           }
         }
       }

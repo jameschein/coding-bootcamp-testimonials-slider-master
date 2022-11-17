@@ -27,11 +27,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* END DATA GETTING APP */
 
+  // JS THE BUTTON BLOC SO IT'S ALWAYS AT THE END OF THE IMAGE
+  const placeButtons = () => {
+    const btnBlk = document.querySelector(".button-block");
+    btnBlk.style.top = profilePic[0].clientWidth * 1.025 + "px";
+  };
+
+  placeButtons();
+
   // RESIZE - RESET CAROUSEL
   window.addEventListener("resize", () => {
     carouselSlider.style.transition = "none";
     size = carouselCards[0].clientWidth;
     carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
+
+    placeButtons();
   });
 
   // MECHANISM - GET THE PARTS
@@ -48,14 +58,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // START ON SECOND SLIDE
   carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
 
-  const buttonControl = counterChange => {
+  const buttonControl = (counterChange) => {
     carouselSlider.style.transition = "transform 500ms ease-in-out";
     counterChange;
     carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
     return counter;
   };
 
-  const sliderShift = cardCalc => {
+  const sliderShift = (cardCalc) => {
     carouselSlider.style.transition = "none";
     counter = cardCalc;
     carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
@@ -74,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener(
     "keyup",
-    e => {
+    (e) => {
       const name = e.key;
       // const code = e.code;
       //console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
