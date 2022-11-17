@@ -6,51 +6,86 @@ document.addEventListener("DOMContentLoaded", () => {
     carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
   });
 
-  // MECHANISM
+  // MECHANISM - GET THE PARTS
   const carouselSlider = document.querySelector(".slider");
   const carouselCards = document.querySelectorAll(".profile-card");
-
   //BUTTONS
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
-
   //COUNTER
   let counter = 1;
-
   // GET WIDTH OF THE DEFAULT CARD
   let size = carouselCards[0].clientWidth;
 
   // START ON SECOND SLIDE
   carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
 
+  const buttonControl = counterChange => {
+    carouselSlider.style.transition = "transform 500ms ease-in-out";
+    counterChange;
+    carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
+    return counter;
+  };
+
+  // const prevControl = () => {
+  //   if (counter <= 0) return;
+  //   carouselSlider.style.transition = "transform 500ms ease-in-out";
+  //   counter--;
+  //   carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
+  // };
+
+  const sliderShift = cardCalc => {
+    carouselSlider.style.transition = "none";
+    counter = cardCalc;
+    carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
+  };
+
   //BUTTON LISTENERS
   nextBtn.addEventListener("click", () => {
     if (counter >= carouselCards.length - 1) return;
-    carouselSlider.style.transition = "transform 500ms ease-in-out";
-    counter++;
-    carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
+    buttonControl(counter++);
   });
 
   prevBtn.addEventListener("click", () => {
     if (counter <= 0) return;
-    carouselSlider.style.transition = "transform 500ms ease-in-out";
-    counter--;
-    carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
+    buttonControl(counter--);
   });
 
-  carouselSlider.addEventListener("transitionend", () => {
-    //SLIDES RIGHT
-    if (carouselCards[counter].id === "lastClone") {
-      carouselSlider.style.transition = "none";
-      counter = carouselCards.length - 2;
-      carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
-    }
+  document.addEventListener(
+    "keydown",
+    e => {
+      const name = e.key;
+      // const code = e.code;
+      //console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
 
-    //SLIDES LEFT
-    if (carouselCards[counter].id === "firstClone") {
-      carouselSlider.style.transition = "none";
-      counter = carouselCards.length - counter;
-      carouselSlider.style.transform = "translateX(" + -size * counter + "px)";
+      if (name === "ArrowRight") {
+        if (counter >= carouselCards.length - 1) return;
+        buttonControl(counter++);
+      } else if (name === "ArrowLeft") {
+        if (counter <= 0) return;
+        buttonControl(counter--);
+      }
+    },
+    false
+  );
+
+  carouselSlider.addEventListener("transitionend", () => {
+    if (carouselCards[counter].id === "lastClone") {
+      //SLIDES RIGHT
+      sliderShift(carouselCards.length - 2);
+    } else if (carouselCards[counter].id === "firstClone") {
+      //SLIDES LEFT
+      sliderShift(carouselCards.length - counter);
     }
   });
 });
+
+let data = fetch("data.json")
+  .then(response => response.json())
+  .then(json => console.log(json));
+
+let mydata = JSON.parse(data);
+console.log(mydata.profiles);
+// console.log(mydata[0].job);
+// console.log(mydata[1].quoteFirst);
+// console.log(mydata[1].quoteBody);

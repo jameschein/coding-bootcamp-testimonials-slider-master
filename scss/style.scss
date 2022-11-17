@@ -178,10 +178,14 @@ footer {
   .attribution {
     font-size: 11px;
     text-align: center;
-  }
 
-  .attribution a {
-    color: #8768d1;
+    a {
+      color: #8768d1;
+    }
+
+    span {
+      display: block;
+    }
   }
 }
 

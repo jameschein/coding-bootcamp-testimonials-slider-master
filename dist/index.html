@@ -5,25 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap"
-      rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
 
-    <script
-      src="https://kit.fontawesome.com/98fc27b2a0.js"
-      crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/98fc27b2a0.js" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
 
     <script src="script-carouselslider.js"></script>
+    <script src="data.json"></script>
 
     <title>Frontend Mentor | Coding Bootcamp Testimonials Slider</title>
 
@@ -35,9 +28,7 @@
       <div class="carousel">
         <nav class="button-block">
           <button class="carousel-button prev">
-            <img
-              src="assets/images/icon-prev.svg"
-              alt="previous slide button" />
+            <img src="assets/images/icon-prev.svg" alt="previous slide button" />
           </button>
           <button class="carousel-button next">
             <img src="assets/images/icon-next.svg" alt="next slide button" />
@@ -48,10 +39,7 @@
           <li class="profile-card" id="lastClone">
             <section class="pic">
               <figure>
-                <img
-                  src="assets/images/image-john.jpg"
-                  alt="John"
-                  class="profile-image" />
+                <img src="assets/images/image-john.jpg" alt="John" class="profile-image" />
               </figure>
             </section>
 
@@ -61,13 +49,10 @@
                 <h3>Junior Front-end Developer</h3>
               </hgroup>
               <blockquote>
+                <p>“ If you want to lay the best foundation possible I'd recommend taking this course.</p>
                 <p>
-                  “ If you want to lay the best foundation possible I'd
-                  recommend taking this course.
-                </p>
-                <p>
-                  The depth the instructors go into is incredible. I now feel so
-                  confident about starting up as a professional developer.”
+                  The depth the instructors go into is incredible. I now feel so confident about starting up as a
+                  professional developer.”
                 </p>
               </blockquote>
             </section>
@@ -76,10 +61,7 @@
           <li class="profile-card" id="tanya">
             <section class="pic">
               <figure>
-                <img
-                  src="assets/images/image-tanya.jpg"
-                  alt="Tanya"
-                  class="profile-image" />
+                <img src="assets/images/image-tanya.jpg" alt="Tanya" class="profile-image" />
               </figure>
             </section>
             <section class="quote">
@@ -88,13 +70,10 @@
                 <h3>UX Engineer</h3>
               </hgroup>
               <blockquote>
+                <p>“ I've been interested in coding for a while but never taken the jump, until now.</p>
                 <p>
-                  “ I've been interested in coding for a while but never taken
-                  the jump, until now.
-                </p>
-                <p>
-                  I couldn't recommend this course enough. I'm now in the job of
-                  my dreams and so excited about the future.”
+                  I couldn't recommend this course enough. I'm now in the job of my dreams and so excited about the
+                  future.”
                 </p>
               </blockquote>
             </section>
@@ -103,10 +82,7 @@
           <li class="profile-card" id="john">
             <section class="pic">
               <figure>
-                <img
-                  src="assets/images/image-john.jpg"
-                  alt="John"
-                  class="profile-image" />
+                <img src="assets/images/image-john.jpg" alt="John" class="profile-image" />
               </figure>
             </section>
 
@@ -116,13 +92,10 @@
                 <h3>Junior Front-end Developer</h3>
               </hgroup>
               <blockquote>
+                <p>“ If you want to lay the best foundation possible I'd recommend taking this course.</p>
                 <p>
-                  “ If you want to lay the best foundation possible I'd
-                  recommend taking this course.
-                </p>
-                <p>
-                  The depth the instructors go into is incredible. I now feel so
-                  confident about starting up as a professional developer.”
+                  The depth the instructors go into is incredible. I now feel so confident about starting up as a
+                  professional developer.”
                 </p>
               </blockquote>
             </section>
@@ -131,10 +104,7 @@
           <li class="profile-card" id="firstClone">
             <section class="pic">
               <figure>
-                <img
-                  src="assets/images/image-tanya.jpg"
-                  alt="Tanya"
-                  class="profile-image" />
+                <img src="assets/images/image-tanya.jpg" alt="Tanya" class="profile-image" />
               </figure>
             </section>
             <section class="quote">
@@ -143,13 +113,10 @@
                 <h3>UX Engineer</h3>
               </hgroup>
               <blockquote>
+                <p>“ I've been interested in coding for a while but never taken the jump, until now.</p>
                 <p>
-                  “ I've been interested in coding for a while but never taken
-                  the jump, until now.
-                </p>
-                <p>
-                  I couldn't recommend this course enough. I'm now in the job of
-                  my dreams and so excited about the future.”
+                  I couldn't recommend this course enough. I'm now in the job of my dreams and so excited about the
+                  future.”
                 </p>
               </blockquote>
             </section>
@@ -161,11 +128,14 @@
 
     <footer>
       <div class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by
-        <a href="https://schein.co.uk" target="_blank">James Schein</a>.
+        <span>
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>
+        </span>
+        <span>
+          Coded by
+          <a href="https://schein.co.uk" target="_blank">James Schein</a>
+        </span>
       </div>
     </footer>
   </body>
