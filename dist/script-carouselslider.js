@@ -80,12 +80,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-let data = fetch("data.json")
-  .then(response => response.json())
-  .then(json => console.log(json));
+const api_url = "data.json";
 
-let mydata = JSON.parse(data);
-console.log(mydata.profiles);
-// console.log(mydata[0].job);
-// console.log(mydata[1].quoteFirst);
-// console.log(mydata[1].quoteBody);
+async function callAPI() {
+  // call API, save response as id, advice
+  // create function to parse advice to HTML
+  const response = await fetch(api_url);
+  const data = await response.json();
+  const profiles = data.profiles;
+  const {name, job} = profiles;
+
+  console.log(profiles);
+
+  // const nameSpace = document.querySelector(".name");
+  // nameSpace.textContent = name;
+}
+
+callAPI();
