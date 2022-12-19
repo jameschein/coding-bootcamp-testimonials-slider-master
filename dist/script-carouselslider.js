@@ -1,20 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // -------------------------------------------------------
-  // -------------------------------------------------------
   // HELPER FUNCTIONS
-  // for setting multiple attributes
+  // Helper for setting multiple attributes
   function setAttributes(el, attrs) {
     for (var key in attrs) {
       el.setAttribute(key, attrs[key])
     }
   }
-
-  // for creating sets of elements
+  // Helper for creating sets of elements
   const addElements = function (array, content, elToCreate, parent) {
-    // array.forEach(function callback(value, index) {
-    //   console.log(`${index}: ${value}`)
-    // })
-
     array.forEach(function callback(value, index) {
       elToCreate.classList.add(`${value}`)
       elToCreate.innerText = content[index]
@@ -23,8 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     })
   }
 
-  // -------------------------------------------------------
-  // -------------------------------------------------------
   // DATA SOURCE
   const api_url = "data.json"
   let carouselSlider = {}
@@ -37,13 +28,17 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchAndAppendProfiles()
 
   async function fetchAndAppendProfiles() {
+    // GET THE DATA
     const allProfiles = await fetchProfiles()
+    // BUILD THE CARD [NECCESSARY WHEN WORKING WITH DATA]
     makeAndAppendProfileCards(allProfiles)
+    // MAKE FAKE NODES CARDS
     addFakeNodes()
+    // CREATE SLIDER MECHANISM
     createSliderMechanism()
   }
 
-  /* DATA GETTING APP */
+  // GET THE DATA
   async function fetchProfiles() {
     const response = await fetch(api_url)
     // REMEMBER - THE JSON RESPONSE IS AN ARRAY OF OBJECTS
@@ -55,9 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return profiles
   }
 
-  // -------------------------------------------------------
-  // -------------------------------------------------------
-  // BUILD THE CARD [NECCESSARY WHEN WORKING WITH DATA] ----
+  // BUILD THE CARD [NECCESSARY WHEN WORKING WITH DATA]
   const makeAndAppendProfileCards = function (profiles) {
     const paras = ["profile-quote-first", "profile-quote-body"]
     let paraContent = ""
@@ -136,8 +129,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // END CARD CONSTRUCTION LOOP
     })
   }
-  // END MAKE PROFILE CARDS
 
+  // MAKE FAKE NODES CARDS
   const addFakeNodes = function () {
     // COPY THE FIRST CARD NODE
     let allNodes = document.querySelectorAll(".profile-card")
@@ -153,8 +146,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // PREPEND TO FRONT OF SLIDER CAROUSEL
     carouselSlider.prepend(lastNode)
   }
-  // END MAKE FAKE NODES CARDS
 
+  // CREATE SLIDER MECHANISM
   const createSliderMechanism = function () {
     // JS THE BUTTON BLOC SO IT'S ALWAYS AT THE END OF THE IMAGE
     const placeButtons = function () {
@@ -250,5 +243,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     })
   }
-  // END SLIDER MECHANISM FUNCTIOn
 })
