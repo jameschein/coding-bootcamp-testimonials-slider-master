@@ -1,123 +1,254 @@
-const api_url = "data.json";
-const profiles = [];
-const imageArray = [];
-
 document.addEventListener("DOMContentLoaded", function () {
-  const profileName = document.querySelectorAll(".profile-name");
-  const profileJob = document.querySelectorAll(".profile-job");
-  const profileQuote = document.querySelectorAll(".profile-quote");
-  const profilePic = document.querySelectorAll(".profile-image");
-
-  /* DATA GETTING APP */
-  async function callAPI(profiles) {
-    const response = await fetch(api_url);
-    const data = await response.json();
-    profiles = data.profiles;
-
-    let i = 0;
-
-    for (i = 0; i < profileName.length; i += 1) {
-      profileQuote[i].children[0].textContent = profiles[i].quote[0];
-      profileQuote[i].children[1].textContent = profiles[i].quote[1];
-      profileJob[i].textContent = profiles[i].job;
-      profileName[i].textContent = profiles[i].candidate;
-      profilePic[i].src = "assets/images/" + profiles[i].portrait;
+  // -------------------------------------------------------
+  // -------------------------------------------------------
+  // HELPER FUNCTIONS
+  // for setting multiple attributes
+  function setAttributes(el, attrs) {
+    for (var key in attrs) {
+      el.setAttribute(key, attrs[key])
     }
   }
 
-  callAPI();
-  /* END DATA GETTING APP */
+  // for creating sets of elements
+  const addElements = function (array, content, elToCreate, parent) {
+    // array.forEach(function callback(value, index) {
+    //   console.log(`${index}: ${value}`)
+    // })
 
-  // JS THE BUTTON BLOC SO IT'S ALWAYS AT THE END OF THE IMAGE
-  const placeButtons = function () {
-    const btnBlk = document.querySelector(".button-block");
-    btnBlk.style.top = profilePic[0].clientWidth * 1.025 + "px";
-  };
+    array.forEach(function callback(value, index) {
+      elToCreate.classList.add(`${value}`)
+      elToCreate.innerText = content[index]
+      parent.append(elToCreate.cloneNode(`${value}`))
+      elToCreate.classList.remove(`${value}`)
+    })
+  }
 
-  placeButtons();
+  // -------------------------------------------------------
+  // -------------------------------------------------------
+  // DATA SOURCE
+  const api_url = "data.json"
+  let carouselSlider = {}
+  // const imageArray = []
+  let profilePics = ["", ""]
 
-  // MECHANISM - GET THE PARTS
-  const carouselSlider = document.querySelector(".slider");
-  const carouselCards = document.querySelectorAll(".profile-card");
-  //BUTTONS
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
-  //c
-  let c = 1;
-  // GET WIDTH OF THE DEFAULT CARD
-  let sz = window.innerWidth;
+  // -------------------------------------------------------
+  // -------------------------------------------------------
+  // INIT
+  fetchAndAppendProfiles()
 
-  // RESIZE - RESET CAROUSEL
-  window.addEventListener("resize", function () {
-    carouselSlider.style.transition = "none";
-    sz = carouselCards[0].clientWidth;
-    carouselSlider.style.transform = "translateX(" + -sz * c + "px)";
+  async function fetchAndAppendProfiles() {
+    const allProfiles = await fetchProfiles()
+    makeAndAppendProfileCards(allProfiles)
+    addFakeNodes()
+    createSliderMechanism()
+  }
 
-    placeButtons();
-  });
+  /* DATA GETTING APP */
+  async function fetchProfiles() {
+    const response = await fetch(api_url)
+    // REMEMBER - THE JSON RESPONSE IS AN ARRAY OF OBJECTS
+    // THE NAME OF THE ARRAY IS THE TOP VARIABLE FOR THE  DATA
+    const profiles = response.json()
+    // NO ERROR CATCHING HERE YET
 
-  // document.querySelector(".posCheck").value = size;
+    // RETURN THE DATA
+    return profiles
+  }
 
-  // START ON SECOND SLIDE
-  carouselSlider.style.transform = "translateX(" + -sz * c + "px)";
+  // -------------------------------------------------------
+  // -------------------------------------------------------
+  // BUILD THE CARD [NECCESSARY WHEN WORKING WITH DATA] ----
+  const makeAndAppendProfileCards = function (profiles) {
+    const paras = ["profile-quote-first", "profile-quote-body"]
+    let paraContent = ""
+    let profileCard = ""
+    let picSection = ""
+    let picSectionFigure = ""
+    let picSectionFigureImg = ""
+    let quoteSection = ""
+    let quoteSectionHgroup = ""
+    let quoteSectionHgroupH2 = ""
+    let quoteSectionHgroupH3 = ""
+    let quoteSectionBlockquote = ""
 
-  const buttonControl = function (cChange) {
-    carouselSlider.style.transition = "transform 200ms ease-in";
-    if (cChange === "plus") {
-      c += 1;
-    } else if (cChange === "minus") {
-      c -= 1;
+    const makeParts = function () {
+      profileCard = document.createElement("li")
+      picSection = document.createElement("section")
+      picSectionFigure = document.createElement("figure")
+      picSectionFigureImg = document.createElement("img")
+      quoteSection = document.createElement("section")
+      quoteSectionHgroup = document.createElement("hgroup")
+      quoteSectionHgroupH2 = document.createElement("h2")
+      quoteSectionHgroupH3 = document.createElement("h3")
+      quoteSectionBlockquote = document.createElement("blockquote")
     }
-    carouselSlider.style.transform = "translateX(" + -sz * c + "px)";
-    return c;
-  };
 
-  const sliderShift = function (cardCalc) {
-    carouselSlider.style.transition = "none";
-    c = cardCalc;
-    carouselSlider.style.transform = "translateX(" + -sz * c + "px)";
-  };
+    // CARD CONSTRUCTION LOOP
+    profiles.forEach(profile => {
+      makeParts()
 
-  //BUTTON LISTENERS
-  nextBtn.addEventListener("click", function () {
-    if (c >= carouselCards.length - 1) {
-      return;
+      profileCard.classList.add("profile-card")
+      profileCard.setAttribute("id", profile.candidate)
+      picSection.classList.add("pic")
+
+      setAttributes(picSectionFigureImg, {
+        src: `assets/images/${profile.portrait}`,
+        alt: `${profile.candidate}`,
+        width: 300,
+        height: 300,
+        "aria-placeholder": "Awaiting Image",
+      })
+
+      picSectionFigureImg.classList.add("profile-image")
+
+      quoteSection.classList.add("quote")
+
+      quoteSectionBlockquote.classList.add("profile-quote")
+      paraContent = [`${profile.quote[0]}`, `${profile.quote[1]}`]
+
+      picSectionFigure.append(picSectionFigureImg)
+      picSection.append(picSectionFigure)
+
+      quoteSection.append(quoteSectionHgroup)
+      quoteSectionHgroup.append(quoteSectionHgroupH2)
+      quoteSectionHgroupH2.classList.add("profile-name")
+      quoteSectionHgroupH2.innerText = `${profile.candidate}`
+      quoteSectionHgroup.append(quoteSectionHgroupH3)
+      quoteSectionHgroupH3.classList.add("profile-job")
+      quoteSectionHgroupH3.innerText = `${profile.job}`
+
+      quoteSection.append(quoteSectionBlockquote)
+
+      profileCard.append(picSection)
+      profileCard.append(quoteSection)
+
+      // RUN A FOREACH LOOP THAT APPENDS TO THE BLOCKQUOTE
+      // [IMPORTED HELPER FROM HAMBURGER MENU CODE TO DO THIS :)]
+      addElements(
+        paras,
+        paraContent,
+        document.createElement("p"),
+        quoteSectionBlockquote
+      )
+
+      carouselSlider = document.querySelector(".slider")
+      carouselSlider.append(profileCard)
+      // END CARD CONSTRUCTION LOOP
+    })
+  }
+  // END MAKE PROFILE CARDS
+
+  const addFakeNodes = function () {
+    // COPY THE FIRST CARD NODE
+    let allNodes = document.querySelectorAll(".profile-card")
+    let frontNode = allNodes[0].cloneNode(true)
+    frontNode.setAttribute("id", "firstClone")
+    let nodeLength = allNodes.length
+    // APPEND TO END OF SLIDER CAROUSEL
+    carouselSlider.append(frontNode)
+    // COPY THE LAST CARD NODE
+    console.log(allNodes.length)
+    const lastNode = allNodes[nodeLength - 1].cloneNode(true)
+    lastNode.setAttribute("id", "lastClone")
+    // PREPEND TO FRONT OF SLIDER CAROUSEL
+    carouselSlider.prepend(lastNode)
+  }
+  // END MAKE FAKE NODES CARDS
+
+  const createSliderMechanism = function () {
+    // JS THE BUTTON BLOC SO IT'S ALWAYS AT THE END OF THE IMAGE
+    const placeButtons = function () {
+      const btnBlk = document.querySelector(".button-block")
+      btnBlk.style.top = profilePics[0].clientWidth * 1.025 + "px"
     }
-    buttonControl("plus");
-  });
 
-  prevBtn.addEventListener("click", function () {
-    if (c <= 0) {
-      return;
+    placeButtons()
+
+    const carouselCards = document.querySelectorAll(".profile-card")
+
+    // BUTTONS
+    const prevBtn = document.querySelector(".prev")
+    const nextBtn = document.querySelector(".next")
+    // c
+    let c = 1
+
+    //   GET WIDTH OF THE DEFAULT CARD
+    let sz = window.innerWidth
+
+    //   RESIZE - RESET CAROUSEL
+    window.addEventListener("resize", function () {
+      carouselSlider.style.transition = "none"
+      sz = carouselCards[0].clientWidth
+      carouselSlider.style.transform = "translateX(" + -sz * c + "px)"
+
+      placeButtons()
+    })
+
+    // NOT NEEDED FOR FINAL PRESENTATION
+    // document.querySelector(".posCheck").value = size
+
+    // START ON SECOND SLIDE
+    carouselSlider.style.transform = "translateX(" + -sz * c + "px)"
+
+    const buttonControl = function (cChange) {
+      carouselSlider.style.transition = "transform 200ms ease-in"
+      if (cChange === "plus") {
+        c += 1
+      } else if (cChange === "minus") {
+        c -= 1
+      }
+      carouselSlider.style.transform = "translateX(" + -sz * c + "px)"
+      return c
     }
-    buttonControl("minus");
-  });
 
-  document.addEventListener("keyup", function (e) {
-    const name = e.key;
-    // const code = e.code;
-    //console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
+    const sliderShift = function (cardCalc) {
+      carouselSlider.style.transition = "none"
+      c = cardCalc
+      carouselSlider.style.transform = "translateX(" + -sz * c + "px)"
+    }
 
-    if (name === "ArrowRight") {
+    //BUTTON LISTENERS
+    nextBtn.addEventListener("click", function () {
       if (c >= carouselCards.length - 1) {
-        return;
+        return
       }
-      buttonControl("plus");
-    } else if (name === "ArrowLeft") {
-      if (c <= 0) {
-        return;
-      }
-      buttonControl("minus");
-    }
-  });
+      buttonControl("plus")
+    })
 
-  carouselSlider.addEventListener("transitionend", function () {
-    if (carouselCards[c].id === "lastClone") {
-      //SLIDES RIGHT
-      sliderShift(carouselCards.length - 2);
-    } else if (carouselCards[c].id === "firstClone") {
-      //SLIDES LEFT
-      sliderShift(carouselCards.length - c);
-    }
-  });
-});
+    prevBtn.addEventListener("click", function () {
+      if (c <= 0) {
+        return
+      }
+      buttonControl("minus")
+    })
+
+    document.addEventListener("keyup", function (e) {
+      const name = e.key
+      // const code = e.code;
+      //console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
+
+      if (name === "ArrowRight") {
+        if (c >= carouselCards.length - 1) {
+          return
+        }
+        buttonControl("plus")
+      } else if (name === "ArrowLeft") {
+        if (c <= 0) {
+          return
+        }
+        buttonControl("minus")
+      }
+    })
+
+    carouselSlider.addEventListener("transitionend", function () {
+      if (carouselCards[c].id === "lastClone") {
+        //SLIDES RIGHT
+        sliderShift(carouselCards.length - 2)
+      } else if (carouselCards[c].id === "firstClone") {
+        //SLIDES LEFT
+        sliderShift(carouselCards.length - c)
+      }
+    })
+  }
+  // END SLIDER MECHANISM FUNCTIOn
+})

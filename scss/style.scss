@@ -141,7 +141,7 @@ a:visited {
       .quote {
         display: grid;
         grid-template-areas: "profile-testimonial" "profile-header";
-        grid-area: "quote";
+        grid-area: quote;
 
         hgroup {
           grid-area: profile-header;

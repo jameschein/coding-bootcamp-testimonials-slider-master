@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap"
+      rel="stylesheet" />
+
+    <script
+      src="https://kit.fontawesome.com/98fc27b2a0.js"
+      crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+
+    <script src="script-carouselslider.js"></script>
+
+    <title>Frontend Mentor | Coding Bootcamp Testimonials Slider</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <main aria-label="Newest Slides" class="container">
+      <div class="carousel">
+        <nav class="button-block">
+          <button class="carousel-button prev">
+            <img
+              src="assets/images/icon-prev.svg"
+              alt="previous slide button" />
+          </button>
+          <button class="carousel-button next">
+            <img src="assets/images/icon-next.svg" alt="next slide button" />
+          </button>
+          <!-- <input class="posCheck" value="000" /> -->
+        </nav>
+
+        <ul class="slider">
+          <!-- FIRST CARD - START JOHN CLONE -->
+          <li class="profile-card" id="lastClone">
+            <section class="pic">
+              <figure>
+                <img
+                  src="assets/images/base-img.png"
+                  aria-placeholder="Awaiting Image"
+                  width="300"
+                  height="300"
+                  alt="John"
+                  class="profile-image" />
+              </figure>
+            </section>
+            <section class="quote">
+              <hgroup>
+                <h2 class="profile-name"></h2>
+                <h3 class="profile-job"></h3>
+              </hgroup>
+              <blockquote class="profile-quote">
+                <p class="profile-quote-first">Placeholder first paragraph</p>
+                <p class="profile-quote-body">Placeholder body text</p>
+              </blockquote>
+            </section>
+          </li>
+          <!-- END JOHN CLONE -->
+
+          <!-- START TANYA -->
+          <li class="profile-card" id="firstClone">
+            <section class="pic">
+              <figure>
+                <img
+                  src="assets/images/base-img.png"
+                  aria-placeholder="Awaiting Image"
+                  width="300"
+                  height="300"
+                  alt="Tanya"
+                  class="profile-image" />
+              </figure>
+            </section>
+            <section class="quote">
+              <hgroup>
+                <h2 class="profile-name"></h2>
+                <h3 class="profile-job"></h3>
+              </hgroup>
+              <blockquote class="profile-quote">
+                <p class="profile-quote-first">Placeholder first paragraph</p>
+                <p class="profile-quote-body">Placeholder body text</p>
+              </blockquote>
+            </section>
+          </li>
+          <!-- END TANYA -->
+
+          <!-- START JOHN -->
+          <li class="profile-card" id="john">
+            <section class="pic">
+              <figure>
+                <img
+                  src="assets/images/base-img.png"
+                  aria-placeholder="Awaiting Image"
+                  width="300"
+                  height="300"
+                  alt="John"
+                  class="profile-image" />
+              </figure>
+            </section>
+
+            <section class="quote">
+              <hgroup>
+                <h2 class="profile-name"></h2>
+                <h3 class="profile-job"></h3>
+              </hgroup>
+              <blockquote class="profile-quote">
+                <p class="profile-quote-first">Placeholder first paragraph</p>
+                <p class="profile-quote-body">Placeholder body text</p>
+              </blockquote>
+            </section>
+          </li>
+          <!-- END JOHN -->
+
+          <!-- START TANYA CLONE | TESTING DATA CELLS -->
+          <li class="profile-card" id="firstClone">
+            <section class="pic">
+              <figure>
+                <img
+                  src="assets/images/base-img.png"
+                  aria-placeholder="Awaiting Image"
+                  width="300"
+                  height="300"
+                  alt="Tanya"
+                  class="profile-image" />
+              </figure>
+            </section>
+            <section class="quote">
+              <hgroup>
+                <h2 class="profile-name"></h2>
+                <h3 class="profile-job"></h3>
+              </hgroup>
+              <blockquote class="profile-quote">
+                <p class="profile-quote-first">Placeholder first paragraph</p>
+                <p class="profile-quote-body">Placeholder body text</p>
+                <p></p>
+              </blockquote>
+            </section>
+          </li>
+          <!-- END TANYA CLONE -->
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      <div class="attribution">
+        <span>
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+            Frontend Mentor
+          </a>
+        </span>
+        <span>
+          Coded by
+          <a href="https://schein.co.uk" target="_blank">James Schein</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
