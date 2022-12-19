@@ -19,8 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // DATA SOURCE
   const api_url = "data.json"
   let carouselSlider = {}
-  // const imageArray = []
-  let profilePics = ["", ""]
 
   // -------------------------------------------------------
   // -------------------------------------------------------
@@ -140,7 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // APPEND TO END OF SLIDER CAROUSEL
     carouselSlider.append(frontNode)
     // COPY THE LAST CARD NODE
-    console.log(allNodes.length)
     const lastNode = allNodes[nodeLength - 1].cloneNode(true)
     lastNode.setAttribute("id", "lastClone")
     // PREPEND TO FRONT OF SLIDER CAROUSEL
@@ -149,14 +146,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // CREATE SLIDER MECHANISM
   const createSliderMechanism = function () {
+    const profilePics = document.querySelector(".profile-image")
+
     // JS THE BUTTON BLOC SO IT'S ALWAYS AT THE END OF THE IMAGE
     const placeButtons = function () {
       const btnBlk = document.querySelector(".button-block")
-      btnBlk.style.top = profilePics[0].clientWidth * 1.025 + "px"
+      btnBlk.style.top = profilePics.clientWidth * 1.025 + "px"
     }
-
     placeButtons()
-
     const carouselCards = document.querySelectorAll(".profile-card")
 
     // BUTTONS
