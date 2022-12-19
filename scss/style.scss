@@ -38,7 +38,7 @@ a:visited {
 }
 // OUTSIDE CAROUSEL DIV
 .carousel {
-  width: 100%;
+  width: 100vw;
   margin-block: 32px 0;
   height: 90%;
   position: relative;
@@ -93,7 +93,7 @@ a:visited {
   }
 
   ul.slider {
-    width: 400vw;
+    width: max-content;
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -102,7 +102,7 @@ a:visited {
     list-style: none;
 
     .profile-card {
-      width: 100%;
+      width: 100vw;
       display: grid;
       grid-template-areas:
         "pic"
