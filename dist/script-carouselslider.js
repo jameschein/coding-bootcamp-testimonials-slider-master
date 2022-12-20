@@ -212,10 +212,10 @@ document.addEventListener("DOMContentLoaded", function () {
       buttonControl("minus")
     })
 
-    const myElement = document.querySelector("#myElement")
-    const myOptions = {}
+    const myElement = document.querySelector("#lastClone")
+
     // FINALLY MOBILE/TABLET SWIPING JS
-    var hammertime = new Hammer(myElement, myOptions)
+    var hammertime = new Hammer(myElement)
     console.log(myElement)
     hammertime.on("panleft", function (ev) {
       if (c >= carouselCards.length - 1) {
