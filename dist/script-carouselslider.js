@@ -212,6 +212,24 @@ document.addEventListener("DOMContentLoaded", function () {
       buttonControl("minus")
     })
 
+    const myElement = document.querySelector("#myElement")
+    const myOptions = {}
+    // FINALLY MOBILE/TABLET SWIPING JS
+    var hammertime = new Hammer(myElement, myOptions)
+    console.log(myElement)
+    hammertime.on("panleft", function (ev) {
+      if (c >= carouselCards.length - 1) {
+        return
+      }
+      buttonControl("plus")
+    })
+    hammertime.on("panright", function (ev) {
+      if (c <= 0) {
+        return
+      }
+      buttonControl("minus")
+    })
+
     document.addEventListener("keyup", function (e) {
       const name = e.key
       // const code = e.code;
@@ -240,11 +258,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     })
   }
-
-  const myElement = document.querySelector(".profile-card")
-  // FINALLY MOBILE/TABLET SWIPING JS
-  var hammertime = new Hammer(myElement, myOptions)
-  hammertime.on("pan", function (ev) {
-    console.log(ev)
-  })
 })
