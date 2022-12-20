@@ -266,7 +266,7 @@ footer .attribution span {
   display: block;
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 536px) {
   body {
     padding: 0;
     background-position: 0% 150%;
