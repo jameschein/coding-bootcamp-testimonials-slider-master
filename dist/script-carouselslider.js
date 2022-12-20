@@ -241,6 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
   }
 
+  const myElement = document.querySelector(".profile-card")
   // FINALLY MOBILE/TABLET SWIPING JS
   var hammertime = new Hammer(myElement, myOptions)
   hammertime.on("pan", function (ev) {
