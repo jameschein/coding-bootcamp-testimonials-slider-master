@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
       buttonControl("minus")
     })
 
-    const myElement = document.querySelector("#lastClone")
+    const myElement = document.querySelector("#myElement")
 
     // FINALLY MOBILE/TABLET SWIPING JS
     var hammertime = new Hammer(myElement)
