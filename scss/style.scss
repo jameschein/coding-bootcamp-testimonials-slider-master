@@ -20,6 +20,8 @@ body {
   line-height: 1.6;
   color: config.$primary-color;
   margin: 0;
+  height: 100vh;
+  overflow: hidden;
 }
 
 p {
