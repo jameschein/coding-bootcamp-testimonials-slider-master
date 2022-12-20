@@ -216,14 +216,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // FINALLY MOBILE/TABLET SWIPING JS
     var hammertime = new Hammer(myElement)
-    console.log(myElement)
-    hammertime.on("panleft", function (ev) {
+    hammertime.on("swipeleft", function (ev) {
       if (c >= carouselCards.length - 1) {
         return
       }
       buttonControl("plus")
     })
-    hammertime.on("panright", function (ev) {
+    hammertime.on("swiperight", function (ev) {
       if (c <= 0) {
         return
       }
