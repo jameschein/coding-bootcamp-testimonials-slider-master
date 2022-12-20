@@ -35,23 +35,27 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/jameschein/coding-bootcamp-testimonials-slider-master)
-- Live Site URL: [Add live site URL here](https://testimonials-slider-challenge.netlify.app/)
+- Solution URL: [Testimonials Slider Challenge - Github](https://github.com/jameschein/coding-bootcamp-testimonials-slider-master)
+- Live Site URL: [Testimonials Slider Challenge - Live](https://testimonials-slider-challenge.netlify.app/)
 
 ## My process
+
+Breaking the task into smaller parts where I felt I could really improve certain skill sets towards more intermediate competence.
+
+- Buildling the UI structure is always a lovely place to start.
+- Looking deeper into handling JSON data and the Fetch structure for getting data correctly - I don';t know hy I find this such a struggle but things have improved since I direct focus to that part only through better function chaining in my code.
+- DOM Manipulation - another struggle for comfort - was next and I feel I have retrieved a lot of knowledge that gained many years ago but had forgotten.
+- Slide carousel next - resource for the method I used listed below.
+-
 
 ### Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
-- CSS Grid
+- Flexbox/ CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Hammer.js fro mobile gestures
+- Fetch and DOM manipulation
 
 ### What I learned
 
@@ -75,33 +79,28 @@ const proudOfThisFunc = () => {
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+API handling and DOM Manipulation - This task really got me looking at youtube frontend interview question videos. These have shown me what I need to do to work faster on-the-fly when presented with a new problem.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+More disciplined refactoring sessions for my code are next on the list of things to focus on.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+For the slideshow -
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+
+For the API/Data handling and DOM Manipuation -
+
+- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Website - [Schein](https://www.schein.co.uk)
+- Frontend Mentor - [@jamesschein](https://www.frontendmentor.io/profile/jamesschein)
+- Twitter - [@jameschein](https://www.twitter.com/jameschein)
 
 ## Acknowledgments
 
 This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
