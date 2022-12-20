@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
       event: "swipe",
       pointers: 1,
       threshold: 10,
-      direction: "DIRECTION_ALL",
+      direction: "DIRECTION_HORIZONTAL",
       velocity: 0.3,
     }
 
