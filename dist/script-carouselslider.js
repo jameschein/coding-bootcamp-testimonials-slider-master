@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const myOptions = {
       event: "swipe",
       pointers: 1,
-      threshold: 10,
+      threshold: 5,
       direction: "DIRECTION_HORIZONTAL",
       velocity: 0.3,
     }
