@@ -213,9 +213,17 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     const myElement = document.querySelector("#myElement")
+    const myOptions = {
+      event: "swipe",
+      pointers: 1,
+      threshold: 10,
+      direction: "DIRECTION_ALL",
+      velocity: 0.3,
+    }
 
     // FINALLY MOBILE/TABLET SWIPING JS
-    var hammertime = new Hammer(myElement)
+    var hammertime = new Hammer(myElement, myOptions)
+
     hammertime.on("swipeleft", function (ev) {
       if (c >= carouselCards.length - 1) {
         return
