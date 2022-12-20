@@ -4,6 +4,7 @@
   body {
     padding: 0;
     background-position: 0% 150%;
+    overflow: auto;
   }
 
   p {
@@ -73,6 +74,7 @@
   }
 
   footer {
+    padding-block: 1rem;
     .attribution {
       span {
         display: inline;

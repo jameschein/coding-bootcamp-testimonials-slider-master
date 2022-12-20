@@ -270,6 +270,7 @@ footer .attribution span {
   body {
     padding: 0;
     background-position: 0% 150%;
+    overflow: auto;
   }
   p {
     font-size: 2rem;
@@ -321,6 +322,9 @@ footer .attribution span {
     margin-left: -65%;
     position: relative;
     left: 50%;
+  }
+  footer {
+    padding-block: 1rem;
   }
   footer .attribution span {
     display: inline;
