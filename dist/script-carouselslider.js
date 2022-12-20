@@ -214,11 +214,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const myElement = document.querySelector("#myElement")
     const myOptions = {
-      event: "swipe",
+      event: "pan",
       pointers: 1,
       threshold: 5,
       direction: "DIRECTION_HORIZONTAL",
-      velocity: 0.3,
+      velocity: 0.5,
     }
 
     // FINALLY MOBILE/TABLET SWIPING JS
@@ -230,6 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       buttonControl("plus")
     })
+
     hammertime.on("swiperight", function (ev) {
       if (c <= 0) {
         return
