@@ -152,9 +152,8 @@ a:visited {
           }
 
           h3 {
-            opacity: 0.5;
             font-weight: 500;
-            color: #bfbcce;
+            color: lighten(config.$secondary-color, 40%);
           }
         }
 

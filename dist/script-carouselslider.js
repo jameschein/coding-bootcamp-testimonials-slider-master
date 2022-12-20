@@ -240,4 +240,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     })
   }
+
+  // FINALLY MOBILE/TABLET SWIPING JS
+  var hammertime = new Hammer(myElement, myOptions)
+  hammertime.on("pan", function (ev) {
+    console.log(ev)
+  })
 })
