@@ -218,16 +218,16 @@ document.addEventListener("DOMContentLoaded", function () {
     var hammertime = new Hammer(myElement, myOptions)
     console.log(myElement)
     hammertime.on("panleft", function (ev) {
-      if (c <= 0) {
-        return
-      }
-      buttonControl("minus")
-    })
-    hammertime.on("panright", function (ev) {
       if (c >= carouselCards.length - 1) {
         return
       }
       buttonControl("plus")
+    })
+    hammertime.on("panright", function (ev) {
+      if (c <= 0) {
+        return
+      }
+      buttonControl("minus")
     })
 
     document.addEventListener("keyup", function (e) {
