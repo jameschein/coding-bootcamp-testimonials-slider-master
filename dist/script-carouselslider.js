@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
       makeParts()
 
       profileCard.classList.add("profile-card")
-      profileCard.setAttribute("id", profile.candidate)
+      // profileCard.setAttribute("id", profile.candidate)
       picSection.classList.add("pic")
 
       setAttributes(picSectionFigureImg, {
