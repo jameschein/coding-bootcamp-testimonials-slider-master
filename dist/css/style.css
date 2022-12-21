@@ -287,14 +287,14 @@ footer .attribution span {
     display: grid;
     grid-template-areas: "quote . pic";
     grid-template-columns: 44% 12% 44%;
-    background-size: 44%;
+    background-size: 48%;
     background-position: 84% 0;
     align-items: center;
     justify-content: center;
     padding: 3rem 6rem 3rem 9rem;
   }
   .container .carousel ul.slider .profile-card figure {
-    width: 55%;
+    width: 60%;
     margin-top: 1rem;
   }
   .container .carousel ul.slider .profile-card .pic {
