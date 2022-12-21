@@ -19,22 +19,21 @@
       .button-block {
         width: 7.25%;
         left: 69%;
-        top: 74%;
       }
 
-      .slider {
+      ul.slider {
         .profile-card {
           display: grid;
           grid-template-areas: "quote . pic";
           grid-template-columns: 44% 12% 44%;
-          background-size: 60%;
-          background-position: 100% 0;
+          background-size: 44%;
+          background-position: 84% 0;
           align-items: center;
           justify-content: center;
           padding: 3rem 6rem 3rem 9rem;
 
           figure {
-            width: 50%;
+            width: 55%;
             margin-top: 1rem;
           }
 
@@ -62,7 +61,7 @@
           }
 
           .profile-image {
-            width: 120%;
+            width: 115%;
             display: block;
             margin-left: -65%;
             position: relative;

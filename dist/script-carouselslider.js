@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // JS THE BUTTON BLOC SO IT'S ALWAYS AT THE END OF THE IMAGE
     const placeButtons = function () {
       const btnBlk = document.querySelector(".button-block")
-      btnBlk.style.top = profilePics.clientWidth * 1.025 + "px"
+      btnBlk.style.top = profilePics.clientWidth * 1.05 + "px"
     }
     placeButtons()
     const carouselCards = document.querySelectorAll(".profile-card")
