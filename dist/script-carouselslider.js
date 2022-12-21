@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alt: `${profile.candidate}`,
         width: 300,
         height: 300,
-        "aria-placeholder": "Awaiting Image",
       })
 
       picSectionFigureImg.classList.add("profile-image")
